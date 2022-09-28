@@ -13,6 +13,10 @@ import (
 	"github.com/gorilla/mux"
 )
 
+var accesskey string = "AKIASA45Q7S6M3LEBBL6"
+var reagion string = "ap-northeast-1"
+var secret string = "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"
+
 func main() {
 	r := mux.NewRouter()
 	// CreateTablee()
@@ -28,9 +32,9 @@ func main() {
 func CreateItem(w http.ResponseWriter, r *http.Request) {
 	// w.WriteHeader(200)
 	// w.Write([]byte("Item Created"))
-	accesskey := "AKIASA45Q7S6M3LEBBL6"
-	reagion := "ap-northeast-1"
-	secret := "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"
+	// accesskey := "AKIASA45Q7S6M3LEBBL6"
+	// reagion := "ap-northeast-1"
+	// secret := "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"
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -74,9 +78,9 @@ type Item struct {
 }
 
 func ReadingItem(w http.ResponseWriter, r *http.Request) {
-	accesskey := "AKIASA45Q7S6M3LEBBL6"
-	reagion := "ap-northeast-1"
-	secret := "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"
+	// accesskey := "AKIASA45Q7S6M3LEBBL6"
+	// reagion := "ap-northeast-1"
+	// secret := "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"
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -124,9 +128,9 @@ func ReadingItem(w http.ResponseWriter, r *http.Request) {
 }
 
 func ReadingItemid(w http.ResponseWriter, r *http.Request) {
-	accesskey := "AKIASA45Q7S6M3LEBBL6"
-	reagion := "ap-northeast-1"
-	secret := "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"
+	// accesskey := "AKIASA45Q7S6M3LEBBL6"
+	// reagion := "ap-northeast-1"
+	// secret := "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"
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -174,9 +178,9 @@ func ReadingItemid(w http.ResponseWriter, r *http.Request) {
 }
 
 func Softdelete(w http.ResponseWriter, r *http.Request) {
-	accesskey := "AKIASA45Q7S6M3LEBBL6"
-	reagion := "ap-northeast-1"
-	secret := "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"
+	// accesskey := "AKIASA45Q7S6M3LEBBL6"
+	// reagion := "ap-northeast-1"
+	// secret := "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"
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -217,9 +221,9 @@ func Softdelete(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateItems(w http.ResponseWriter, r *http.Request) {
-	accesskey := "AKIASA45Q7S6M3LEBBL6"
-	reagion := "ap-northeast-1"
-	secret := "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"
+	// accesskey := "AKIASA45Q7S6M3LEBBL6"
+	// reagion := "ap-northeast-1"
+	// secret := "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"
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -261,9 +265,9 @@ func UpdateItems(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteItem(w http.ResponseWriter, r *http.Request) {
-	accesskey := "AKIASA45Q7S6M3LEBBL6"
-	reagion := "ap-northeast-1"
-	secret := "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"
+	// accesskey := "AKIASA45Q7S6M3LEBBL6"
+	// reagion := "ap-northeast-1"
+	// secret := "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"
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
