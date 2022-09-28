@@ -10,6 +10,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+var result string = "OK response is expected"
+
 func Router() *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc("/", CreateItem).Methods("GET")
@@ -24,14 +26,14 @@ func TestCreateItem(t *testing.T) {
 	request, _ := http.NewRequest("GET", "/", nil)
 	response := httptest.NewRecorder()
 	Router().ServeHTTP(response, request)
-	assert.Equal(t, 200, response.Code, "OK response is expected")
+	assert.Equal(t, 200, response.Code, result)
 }
 
 func TestReadItem(t *testing.T) {
 	request, _ := http.NewRequest("GET", "/movie/1", nil)
 	response := httptest.NewRecorder()
 	Router().ServeHTTP(response, request)
-	assert.Equal(t, 200, response.Code, "OK response is expected")
+	assert.Equal(t, 200, response.Code, result)
 }
 
 //	func TestUpdateItem(t *testing.T) {
@@ -49,5 +51,5 @@ func TestDeleteItem(t *testing.T) {
 	request, _ := http.NewRequest("DELETE", "/movie/2", nil)
 	response := httptest.NewRecorder()
 	Router().ServeHTTP(response, request)
-	assert.Equal(t, 200, response.Code, "OK response is expected")
+	assert.Equal(t, 200, response.Code, result)
 }
