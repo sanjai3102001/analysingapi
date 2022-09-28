@@ -228,7 +228,7 @@ func UpdateItems(w http.ResponseWriter, r *http.Request) {
 	// tableName := "Movies"
 	// Title := "kgf2"
 	Movieid := "2010"
-	Hero := "yash"
+	Hero := "kgdyash"
 
 	input := &dynamodb.UpdateItemInput{
 		ExpressionAttributeValues: map[string]*dynamodb.AttributeValue{
