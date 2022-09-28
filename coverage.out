@@ -1,5 +1,5 @@
 mode: set
-go-postgres/main.go:23.13,34.2 8 0
+go-postgres/main.go:23.13,34.2 7 0
 go-postgres/main.go:37.57,54.16 6 1
 go-postgres/main.go:58.2,66.16 4 1
 go-postgres/main.go:54.16,56.3 1 0
@@ -21,6 +21,6 @@ go-postgres/main.go:213.16,215.3 1 0
 go-postgres/main.go:220.58,254.16 8 1
 go-postgres/main.go:258.2,258.90 1 1
 go-postgres/main.go:254.16,256.3 1 0
-go-postgres/main.go:262.57,287.16 7 0
-go-postgres/main.go:290.2,290.82 1 0
+go-postgres/main.go:262.57,287.16 7 1
+go-postgres/main.go:290.2,290.82 1 1
 go-postgres/main.go:287.16,289.3 1 0
