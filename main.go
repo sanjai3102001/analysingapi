@@ -24,10 +24,10 @@ func main() {
 	r := mux.NewRouter()
 	// CreateTablee()
 	r.HandleFunc("/", CreateItem).Methods("GET")
-	// r.HandleFunc("/movie/1", function.ReadingItemid).Methods("GET")
-	// r.HandleFunc("/movie", function.CreateItem).Methods("POST")
-	// r.HandleFunc("/movie/2", function.UpdateItems).Methods("PUT")
-	// r.HandleFunc("/movie/2", function.Softdelete).Methods("DELETE")
+	r.HandleFunc("/movie/1", ReadingItemid).Methods("GET")
+	r.HandleFunc("/movie", CreateItem).Methods("POST")
+	r.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
+	r.HandleFunc("/movie/2", Softdelete).Methods("DELETE")
 	log.Fatal(http.ListenAndServe("Localhost:5000", r))
 
 }
@@ -49,24 +49,22 @@ func CreateItem(w http.ResponseWriter, r *http.Request) {
 		"isactive": true,
 	}
 
-	av, _ := dynamodbattribute.MarshalMap(item)
-	// av, err := dynamodbattribute.MarshalMap(item)
-	// if err != nil {
-	// 	log.Fatalf("Got error marshalling new movie item: %s", err)
-	// }
+	av, err := dynamodbattribute.MarshalMap(item)
+	if err != nil {
+		log.Fatalf("Got error marshalling new movie item: %s", err)
+	}
 
-	// tableName := "Movies"
+	tableName := "Movies"
 
 	input := &dynamodb.PutItemInput{
 		Item:      av,
 		TableName: aws.String(tableName),
 	}
 
-	svc.PutItem(input)
-	// _, err = svc.PutItem(input)
-	// if err != nil {
-	// 	log.Fatalf("Got error calling PutItem: %s", err)
-	// }
+	_, err = svc.PutItem(input)
+	if err != nil {
+		log.Fatalf("Got error calling PutItem: %s", err)
+	}
 
 	// year := strconv.Itoa(item["Movieid"].(int))
 
@@ -93,7 +91,7 @@ func ReadingItem(w http.ResponseWriter, r *http.Request) {
 	Title := "kgf"
 	movieid := "2010"
 
-	result, _ := svc.GetItem(&dynamodb.GetItemInput{
+	result, err := svc.GetItem(&dynamodb.GetItemInput{
 		TableName: aws.String(tableName),
 		Key: map[string]*dynamodb.AttributeValue{
 			"Movieid": {
@@ -105,9 +103,9 @@ func ReadingItem(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 	fmt.Println(result)
-	// if err != nil {
-	// 	log.Fatalf("Got error calling GetItem: %s", err)
-	// }
+	if err != nil {
+		log.Fatalf("Got error calling GetItem: %s", err)
+	}
 	// id, err := strconv.Atoi(movieid)
 
 	// if id != 0 {
@@ -116,13 +114,12 @@ func ReadingItem(w http.ResponseWriter, r *http.Request) {
 
 	item := Item{}
 
-	dynamodbattribute.UnmarshalMap(result.Item, &item)
-	// err = dynamodbattribute.UnmarshalMap(result.Item, &item)
-	// if err != nil {
-	// 	panic(fmt.Sprintf("Failed to unmarshal Record, %v", err))
-	// }
+	err = dynamodbattribute.UnmarshalMap(result.Item, &item)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to unmarshal Record, %v", err))
+	}
 
-	// fmt.Println("Found item:")
+	fmt.Println("Found item:")
 	fmt.Println("Id:  ", item.Movieid)
 	fmt.Println("Title: ", item.Title)
 	fmt.Println("Hero:  ", item.Hero)
@@ -142,7 +139,7 @@ func ReadingItemid(w http.ResponseWriter, r *http.Request) {
 	// Title := "kgf3"
 	// movieid := "2010"
 
-	result, _ := svc.GetItem(&dynamodb.GetItemInput{
+	result, err := svc.GetItem(&dynamodb.GetItemInput{
 		TableName: aws.String(tableName),
 		Key: map[string]*dynamodb.AttributeValue{
 			"Movieid": {
@@ -154,22 +151,21 @@ func ReadingItemid(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 	fmt.Println(result)
-	// if err != nil {
-	// 	log.Fatalf("Got error calling GetItem: %s", err)
-	// }
+	if err != nil {
+		log.Fatalf("Got error calling GetItem: %s", err)
+	}
 	//id, err := strconv.Atoi(movieid)
 
-	// if Title == "" {
-	// 	log.Fatalf("No item: %s", err)
-	// }
+	if Title == "" {
+		log.Fatalf("No item: %s", err)
+	}
 
 	item := Item{}
 
-	dynamodbattribute.UnmarshalMap(result.Item, &item)
-	// err = dynamodbattribute.UnmarshalMap(result.Item, &item)
-	// if err != nil {
-	// 	panic(fmt.Sprintf("Failed to unmarshal Record, %v", err))
-	// }
+	err = dynamodbattribute.UnmarshalMap(result.Item, &item)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to unmarshal Record, %v", err))
+	}
 
 	fmt.Println("Found item:")
 	fmt.Println("Id:  ", item.Movieid)
