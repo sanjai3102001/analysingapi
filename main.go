@@ -10,7 +10,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
-	"github.com/gorilla/mux"
 )
 
 var accesskey string = "AKIASA45Q7S6M3LEBBL6"
@@ -21,14 +20,14 @@ var Title string = "kgf3"
 var movieid string = "2010"
 
 func main() {
-	r := mux.NewRouter()
+	// r := mux.NewRouter()
 	// // CreateTablee()
 	// r.HandleFunc("/", CreateItem).Methods("GET")
 	// r.HandleFunc("/movie/1", ReadingItemid).Methods("GET")
 	// r.HandleFunc("/movie", CreateItem).Methods("POST")
 	// r.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
 	// r.HandleFunc("/movie/2", Softdelete).Methods("DELETE")
-	log.Fatal(http.ListenAndServe("Localhost:5000", r))
+	// log.Fatal(http.ListenAndServe("Localhost:5000", r))
 
 }
 
