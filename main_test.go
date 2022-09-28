@@ -20,7 +20,7 @@ func Router() *mux.Router {
 	// router.HandleFunc("/movie", function.CreateItem).Methods("POST")
 	router.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
 	router.HandleFunc("/movie/1", Softdelete).Methods("DELETE")
-	router.HandleFunc("/movie/4", Softdelete).Methods("DELETE")
+	router.HandleFunc("/movie/4", DeleteItem).Methods("DELETE")
 	return router
 }
 
