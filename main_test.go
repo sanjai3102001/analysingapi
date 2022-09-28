@@ -20,6 +20,7 @@ func Router() *mux.Router {
 	// router.HandleFunc("/movie", function.CreateItem).Methods("POST")
 	router.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
 	router.HandleFunc("/movie/1", Softdelete).Methods("DELETE")
+	router.HandleFunc("/movie/4", Softdelete).Methods("DELETE")
 	return router
 }
 
@@ -55,8 +56,15 @@ func TestUpdateItem(t *testing.T) {
 	Router().ServeHTTP(response, request)
 	assert.Equal(t, 200, response.Code, result)
 }
-func TestDeleteItem(t *testing.T) {
+func TestSoftDelete(t *testing.T) {
 	request, _ := http.NewRequest("DELETE", "/movie/1", nil)
+	response := httptest.NewRecorder()
+	Router().ServeHTTP(response, request)
+	assert.Equal(t, 200, response.Code, result)
+}
+
+func TestDeleteItem(t *testing.T) {
+	request, _ := http.NewRequest("DELETE", "/movie/4", nil)
 	response := httptest.NewRecorder()
 	Router().ServeHTTP(response, request)
 	assert.Equal(t, 200, response.Code, result)

@@ -28,6 +28,7 @@ func main() {
 	r.HandleFunc("/movie", CreateItem).Methods("POST")
 	r.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
 	r.HandleFunc("/movie/2", Softdelete).Methods("DELETE")
+	r.HandleFunc("/movie/2", Softdelete).Methods("DELETE")
 	log.Fatal(http.ListenAndServe("Localhost:5000", r))
 
 }
