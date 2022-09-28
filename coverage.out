@@ -1,0 +1,26 @@
+mode: set
+go-postgres/main.go:16.13,26.2 3 0
+go-postgres/main.go:28.57,46.16 6 1
+go-postgres/main.go:50.2,58.16 4 1
+go-postgres/main.go:46.16,48.3 1 0
+go-postgres/main.go:58.16,60.3 1 0
+go-postgres/main.go:73.58,97.16 9 0
+go-postgres/main.go:106.2,109.16 3 0
+go-postgres/main.go:113.2,116.35 4 0
+go-postgres/main.go:97.16,99.3 1 0
+go-postgres/main.go:109.16,110.60 1 0
+go-postgres/main.go:120.60,144.16 9 1
+go-postgres/main.go:149.2,149.17 1 1
+go-postgres/main.go:153.2,156.16 3 1
+go-postgres/main.go:160.2,163.35 4 1
+go-postgres/main.go:144.16,146.3 1 0
+go-postgres/main.go:149.17,151.3 1 0
+go-postgres/main.go:156.16,157.60 1 0
+go-postgres/main.go:167.57,201.16 10 0
+go-postgres/main.go:201.16,203.3 1 0
+go-postgres/main.go:207.58,240.16 10 0
+go-postgres/main.go:244.2,244.90 1 0
+go-postgres/main.go:240.16,242.3 1 0
+go-postgres/main.go:248.57,274.16 9 0
+go-postgres/main.go:277.2,277.82 1 0
+go-postgres/main.go:274.16,276.3 1 0
