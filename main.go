@@ -16,6 +16,9 @@ import (
 var accesskey string = "AKIASA45Q7S6M3LEBBL6"
 var reagion string = "ap-northeast-1"
 var secret string = "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"
+var tableName string = "Movies"
+var Title string = "kgf3"
+var movieid string = "2010"
 
 func main() {
 	r := mux.NewRouter()
@@ -132,9 +135,9 @@ func ReadingItemid(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(sess.Config.Credentials.Get())
 	svc := dynamodb.New(sess, &aws.Config{Endpoint: aws.String("")})
 
-	tableName := "Movies"
-	Title := "kgf3"
-	movieid := "2010"
+	// tableName := "Movies"
+	// Title := "kgf3"
+	// movieid := "2010"
 
 	result, err := svc.GetItem(&dynamodb.GetItemInput{
 		TableName: aws.String(tableName),
@@ -181,8 +184,8 @@ func Softdelete(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(sess.Config.Credentials.Get())
 	svc := dynamodb.New(sess, &aws.Config{Endpoint: aws.String("")})
 
-	tableName := "Movies"
-	Title := "kgf2"
+	// tableName := "Movies"
+	// Title := "kgf2"
 	Movieid := "2022"
 	Isactive := false
 
@@ -222,8 +225,8 @@ func UpdateItems(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(sess.Config.Credentials.Get())
 	svc := dynamodb.New(sess, &aws.Config{Endpoint: aws.String("")})
 
-	tableName := "Movies"
-	Title := "kgf2"
+	// tableName := "Movies"
+	// Title := "kgf2"
 	Movieid := "2010"
 	Hero := "yash"
 
@@ -266,9 +269,9 @@ func DeleteItem(w http.ResponseWriter, r *http.Request) {
 
 	//delete an item in database
 
-	tableName := "Movies"
+	// tableName := "Movies"
 	movieName := "xyz"
-	movieid := "2001"
+	// movieid := "2001"
 
 	input := &dynamodb.DeleteItemInput{
 		Key: map[string]*dynamodb.AttributeValue{
