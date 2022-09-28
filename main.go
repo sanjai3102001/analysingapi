@@ -20,14 +20,6 @@ var Title string = "kgf3"
 var movieid string = "2010"
 
 func main() {
-	// r := mux.NewRouter()
-	// // CreateTablee()
-	// r.HandleFunc("/", CreateItem).Methods("GET")
-	// r.HandleFunc("/movie/1", ReadingItemid).Methods("GET")
-	// r.HandleFunc("/movie", CreateItem).Methods("POST")
-	// r.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
-	// r.HandleFunc("/movie/2", Softdelete).Methods("DELETE")
-	// log.Fatal(http.ListenAndServe("Localhost:5000", r))
 
 }
 
