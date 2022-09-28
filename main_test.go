@@ -15,11 +15,19 @@ var result string = "OK response is expected"
 func Router() *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc("/", CreateItem).Methods("GET")
+	router.HandleFunc("/movie", ReadingItem).Methods("GET")
 	router.HandleFunc("/movie/1", ReadingItemid).Methods("GET")
 	// router.HandleFunc("/movie", function.CreateItem).Methods("POST")
 	router.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
-	router.HandleFunc("/movie/2", Softdelete).Methods("DELETE")
+	router.HandleFunc("/movie/1", Softdelete).Methods("DELETE")
 	return router
+}
+
+func TestReadingItem(t *testing.T) {
+	request, _ := http.NewRequest("GET", "/movie", nil)
+	response := httptest.NewRecorder()
+	Router().ServeHTTP(response, request)
+	assert.Equal(t, 200, response.Code, result)
 }
 
 func TestCreateItem(t *testing.T) {
@@ -48,7 +56,7 @@ func TestUpdateItem(t *testing.T) {
 	assert.Equal(t, 200, response.Code, result)
 }
 func TestDeleteItem(t *testing.T) {
-	request, _ := http.NewRequest("DELETE", "/movie/2", nil)
+	request, _ := http.NewRequest("DELETE", "/movie/1", nil)
 	response := httptest.NewRecorder()
 	Router().ServeHTTP(response, request)
 	assert.Equal(t, 200, response.Code, result)
