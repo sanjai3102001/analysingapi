@@ -19,6 +19,7 @@ var tableName string = "Movies"
 var Title string = "kgf3"
 var movieid string = "2010"
 
+// for the testing purpose this function is empty
 func main() {
 
 }
