@@ -16,7 +16,7 @@ func Router() *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc("/", CreateItem).Methods("GET")
 	router.HandleFunc("/movie", ReadingItem).Methods("GET")
-	router.HandleFunc("/movie/1", ReadingItemid).Methods("GET")
+	router.HandleFunc("/movie/3", ReadingItemid).Methods("GET")
 	// router.HandleFunc("/movie", function.CreateItem).Methods("POST")
 	router.HandleFunc("/movie/2", UpdateItems).Methods("PUT")
 	router.HandleFunc("/movie/1", Softdelete).Methods("DELETE")
@@ -38,7 +38,7 @@ func TestCreateItem(t *testing.T) {
 }
 
 func TestReadItem(t *testing.T) {
-	request, _ := http.NewRequest("GET", "/movie/1", nil)
+	request, _ := http.NewRequest("GET", "/movie/3", nil)
 	response := httptest.NewRecorder()
 	Router().ServeHTTP(response, request)
 	assert.Equal(t, 200, response.Code, result)
