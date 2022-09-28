@@ -29,12 +29,9 @@ func main() {
 
 }
 
+// This CreateItem function id used to create a item in a dynamo db
 func CreateItem(w http.ResponseWriter, r *http.Request) {
-	// w.WriteHeader(200)
-	// w.Write([]byte("Item Created"))
-	// accesskey := "AKIASA45Q7S6M3LEBBL6"
-	// reagion := "ap-northeast-1"
-	// secret := "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"
+
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -77,10 +74,9 @@ type Item struct {
 	Hero    string
 }
 
+// This ReadingItem function id used to read a item in a dynamo db
 func ReadingItem(w http.ResponseWriter, r *http.Request) {
-	// accesskey := "AKIASA45Q7S6M3LEBBL6"
-	// reagion := "ap-northeast-1"
-	// secret := "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"
+
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -127,10 +123,8 @@ func ReadingItem(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// This ReadItemId function is used to read the specfic item from an dynamo db
 func ReadingItemid(w http.ResponseWriter, r *http.Request) {
-	// accesskey := "AKIASA45Q7S6M3LEBBL6"
-	// reagion := "ap-northeast-1"
-	// secret := "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"
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -177,10 +171,9 @@ func ReadingItemid(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// This Softdelete function id used to delete a item in a dynamo db
 func Softdelete(w http.ResponseWriter, r *http.Request) {
-	// accesskey := "AKIASA45Q7S6M3LEBBL6"
-	// reagion := "ap-northeast-1"
-	// secret := "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"
+
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -191,7 +184,6 @@ func Softdelete(w http.ResponseWriter, r *http.Request) {
 	tableName := "Movies"
 	Title := "kgf2"
 	Movieid := "2022"
-	//Hero := "yash"
 	Isactive := false
 
 	input := &dynamodb.UpdateItemInput{
@@ -220,10 +212,9 @@ func Softdelete(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// This is a update function for a movie api
 func UpdateItems(w http.ResponseWriter, r *http.Request) {
-	// accesskey := "AKIASA45Q7S6M3LEBBL6"
-	// reagion := "ap-northeast-1"
-	// secret := "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"
+
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
@@ -265,9 +256,7 @@ func UpdateItems(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteItem(w http.ResponseWriter, r *http.Request) {
-	// accesskey := "AKIASA45Q7S6M3LEBBL6"
-	// reagion := "ap-northeast-1"
-	// secret := "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"
+
 	sess, _ := session.NewSession(&aws.Config{
 		Region:      aws.String(reagion),
 		Credentials: credentials.NewStaticCredentials(accesskey, secret, ""),
