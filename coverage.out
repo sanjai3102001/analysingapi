@@ -18,8 +18,8 @@ go-postgres/main.go:159.17,161.3 1 0
 go-postgres/main.go:166.16,167.60 1 0
 go-postgres/main.go:178.57,212.16 8 1
 go-postgres/main.go:212.16,214.3 1 0
-go-postgres/main.go:219.58,253.16 8 0
-go-postgres/main.go:257.2,257.90 1 0
+go-postgres/main.go:219.58,253.16 8 1
+go-postgres/main.go:257.2,257.90 1 1
 go-postgres/main.go:253.16,255.3 1 0
 go-postgres/main.go:261.57,286.16 7 0
 go-postgres/main.go:289.2,289.82 1 0
