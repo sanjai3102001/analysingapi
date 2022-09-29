@@ -45,11 +45,6 @@ func TestReadItem(t *testing.T) {
 }
 
 func TestUpdateItem(t *testing.T) {
-	// person := &Person{
-	// 	Firstname: "Nic",
-	// 	Lastname: "Raboy"
-	// }
-	// jsonPerson, _ := json.Marshal(person)
 	request, _ := http.NewRequest("PUT", "/movie/2", nil)
 	response := httptest.NewRecorder()
 	Router().ServeHTTP(response, request)
