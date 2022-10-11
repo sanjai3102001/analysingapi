@@ -138,7 +138,7 @@ func ReadingItemid(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 	fmt.Println(result)
-	if err != nil {
+	if recover(); err != nil {
 		log.Fatalf("Got error calling GetItem: %s", err)
 	}
 	//id, err := strconv.Atoi(movieid)
@@ -237,7 +237,7 @@ func UpdateItems(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_, err := svc.UpdateItem(input)
-	if err != nil {
+	if recover(); err != nil {
 		log.Fatalf("Got error calling UpdateItem: %s", err)
 	}
 
@@ -270,7 +270,7 @@ func DeleteItem(w http.ResponseWriter, r *http.Request) {
 		TableName: aws.String(tableName),
 	}
 	_, err := svc.DeleteItem(input)
-	if err != nil {
+	if recover(); err != nil {
 		log.Fatalf("Got error calling DeleteItem:%s", err)
 	}
 	fmt.Println("Deleted'" + movieName + "'(" + movieid + ")from table" + tableName)
