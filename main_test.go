@@ -44,6 +44,13 @@ func TestReadItem(t *testing.T) {
 	assert.Equal(t, 200, response.Code, result)
 }
 
+func TestNegativeReadItem(t *testing.T) {
+	request, _ := http.NewRequest("GET", "/movie/11", nil)
+	response := httptest.NewRecorder()
+	Router().ServeHTTP(response, request)
+	assert.Equal(t, 404, response.Code, result)
+}
+
 func TestUpdateItem(t *testing.T) {
 	request, _ := http.NewRequest("PUT", "/movie/2", nil)
 	response := httptest.NewRecorder()
