@@ -271,7 +271,7 @@ func DeleteItem(w http.ResponseWriter, r *http.Request) {
 	}
 	_, err := svc.DeleteItem(input)
 	if recover(); err != nil {
-		log.Fatalf("Got error calling DeleteItem:%s", err)
+		log.Print("Got error calling DeleteItem:", err)
 	}
 	fmt.Println("Deleted'" + movieName + "'(" + movieid + ")from table" + tableName)
 }
