@@ -138,9 +138,7 @@ func ReadingItemid(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 	fmt.Println(result)
-	if recover(); err != nil {
-		log.Fatalf("Got error calling GetItem: %s", err)
-	}
+
 	//id, err := strconv.Atoi(movieid)
 
 	if Title == "" {
