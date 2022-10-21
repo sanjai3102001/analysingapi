@@ -70,3 +70,10 @@ func TestDeleteItem(t *testing.T) {
 	Router().ServeHTTP(response, request)
 	assert.Equal(t, 200, response.Code, result)
 }
+
+func TestNegativeDeleteItem(t *testing.T) {
+	request, _ := http.NewRequest("Delete", "/movie/11", nil)
+	response := httptest.NewRecorder()
+	Router().ServeHTTP(response, request)
+	assert.Equal(t, 404, response.Code, result)
+}
