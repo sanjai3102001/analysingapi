@@ -77,3 +77,26 @@ func TestNegativeDeleteItem(t *testing.T) {
 	Router().ServeHTTP(response, request)
 	assert.Equal(t, 404, response.Code, result)
 }
+
+// This is a Negative testcase for updateitem
+func TestNegativeUpdateItems(t *testing.T) {
+	request, _ := http.NewRequest("Put", "/movie/12", nil)
+	response := httptest.NewRecorder()
+	Router().ServeHTTP(response, request)
+	assert.Equal(t, 404, response.Code, result)
+}
+
+// This is a Negative testcase for the create item
+func TestNegativeCreateitem(t *testing.T) {
+	request, _ := http.NewRequest("Post", "movie/2", nil)
+	response := httptest.NewRecorder()
+	Router().ServeHTTP(response, request)
+	assert.Equal(t, 301, response.Code, result)
+}
+
+func TestNegativeSoftDelete(t *testing.T) {
+	request, _ := http.NewRequest("Delete", "movie/15", nil)
+	response := httptest.NewRecorder()
+	Router().ServeHTTP(response, request)
+	assert.Equal(t, 404, response.Code, result)
+}
